@@ -36,7 +36,29 @@
 
 // Fixed-Width Integers
 //
-// 
+// how many different numbers can we express with 1 byte?
+// 2^8 = 256 different numbers. How did we know to take 2^8??
+// beware of integer overflow --> What happens if we have the number 255 in an 8-bit unsigned integer (1111 1111 in binary) and we add 1? The answer (256) needs a 9th bit (1 0000 0000). But we only have 8 bits!; At best, we might just get an error. At worst, our computer might compute the correct answer but then just throw out the 9th bit, giving us zero (0000 0000) instead of 256 (1 0000 0000)! (Javascript automatically converts the result to Infinity if it gets too big.)
+// 256 possibilities
+// so we usually use 4 or 8 bytes (32 or 64 bits) for storing intgers
+// 32-bit integers have 2^32 possible values—more than 4 billion
+// 64-bit integers have 2^64 possible values—more than 10 billion billion 
+// in some languages like Java and C, some numbers are Integers and some are Longs -- the different is the number of bits. 
+// in java, Integers are 32 bits and Longs are 64
+// a table in SQL, you have to specify the bytes when a column holds integers
+// when is 32 bits not enough? when you're counting views on a viral video --> youtube
+// most integers are fixed-width or fixed-length, which means the number of bits they take up doesn't change
+// usually safe to assume an integer is fixed-width, unless told otherwise
+// variable-size numbers exist, but only used in special cases
+// If we have a 64-bit fixed-length integer, it doesn't matter if that integer is 0 or 193,457—it still takes up the same amount of space in RAM: 64 bits.
+// Are you familiar with big O notation? It's a tool we use for talking about how much time an algorithm takes to run or how much space a data structure takes up in RAM.
+// O(1) space is much smaller than O(n) space. And O(1) time is much faster than O(n) time
+// fixed-width integers take up constant space or O(1) space
+// because they have a constant number of bits, most simple operations on fixed-width integers (addition, subtraction, multiplication, division) take constant time (O(1) time)
+// fixed-width integers are very space efficient and time efficient
+// that efficiency comes at a cost—their values are limited
+// Specifically, they're limited to 2^n possibilities, where n is the number of bits
+
 
 
 // Arrays

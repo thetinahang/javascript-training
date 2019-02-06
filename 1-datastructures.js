@@ -60,8 +60,31 @@
 // Specifically, they're limited to 2^n possibilities, where n is the number of bits
 
 
-
 // Arrays
+//
+// about storing several numbers
+// RAM --> array
+// the elements of an array are numbered --> that number is the index of the array element (plural: indices)
+// we usually use 64-bit integers
+// how do we build an array of 64-bit (8 byte) integers on top of our 8-bit (1 byte) memory slots?
+// we simply give each array index 8 address slots instead of 1
+// can still use simple math to grab the start of the nth item in our array -- just gotta throw in some multiplication
+// Remember: addition, subtraction, multiplication, and division of fixed-width integers takes O(1) time. So all the math we're using here to get the address of the nth item in the array takes O(1) time.
+// the memory controller has a direct connection to each slot in RAM
+// we can read the stuff at any given memory address in O(1) time
+// this means looking up the contents of a given array index is O(1) time
+// This fast lookup capability is the most important property of arrays
+// But the formula we used to get the address of the nth item in our array only works if:
+// 1. Each item in the array is the same size (takes up the same number of bytes).
+// 2. The array is uninterrupted (contiguous) in memory. There can't be any gaps in the array...
+// These things make our formula for finding the nth item work because they make our array predictable. We can predict exactly where in memory the nth element of our array will be
+// they also constrain what kinds of things we can put in an array. Every item has to be the same size
+// if our array is going to store a lot of stuff, we'll need a bunch of uninterrupted free space in RAM. Which gets hard when most of our RAM is already occupied by other programs
+// tradeoff: Arrays have fast lookups (O(1) time), but each item in the array needs to be the same size, and you need a big block of uninterrupted free memory to store the array
+
+
+
+
 // Strings
 // Pointers
 // Dynamic Arrays
